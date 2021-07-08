@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5865bf860efe5e34fbc9ea171fab69f2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fullScreenToggle: {fileID: 7172834497971721193, guid: 409598e1c59e1e44ba50b8c0d9889ac0,
+      type: 3}
+  - fpsToggle: {fileID: 3838029941327157962, guid: 8972567ab4430db42b27c7504aa9a313,
+      type: 3}
+  - ctrlToggle: {fileID: 4979996185838468056, guid: 4ed647bde00cc5d44bace4546a0fdd6f,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
