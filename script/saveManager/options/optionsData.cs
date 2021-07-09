@@ -86,6 +86,21 @@ public class optionsData : MonoBehaviour
         options.qualityLevel = qualityLevelDropdown.value;
         QualitySettings.SetQualityLevel(options.qualityLevel);
 
+        if (options.qualityLevel <= 0)
+        {
+            bloomToggle.isOn = false;
+            options.setBloom = bloomToggle.isOn;
+
+            Debug.Log("Bloom set to " + options.setBloom.ToString());
+        }
+        else
+        {
+            bloomToggle.isOn = true;
+            options.setBloom = bloomToggle.isOn;
+
+            Debug.Log("Bloom set to " + options.setBloom.ToString());
+        }
+
         Debug.Log("Quality set to " + QualitySettings.names);
 
         SaveOptions();
@@ -114,17 +129,27 @@ public class optionsData : MonoBehaviour
     
     public void LoadOptions()
     {
-        options = JsonUtility.FromJson<Options>(File.ReadAllText(Application.persistentDataPath + "/options.json"));
+        if (File.Exists(Application.persistentDataPath + "/options.json"))
+        {
+            options = JsonUtility.FromJson<Options>(File.ReadAllText(Application.persistentDataPath + "/options.json"));
 
-        fullScreenToggle.isOn = options.setFullscreen;
-        fpsToggle.isOn = options.setFPS;
-        ctrlToggle.isOn = options.setController;
-        volumeSlider.value = options.volumeSfx;
-        qualityLevelDropdown.value = options.qualityLevel;
-        bloomToggle.isOn = options.setBloom;
-        antiAliasingDropdown.value = options.antiAliasling;
+            fullScreenToggle.isOn = options.setFullscreen;
+            fpsToggle.isOn = options.setFPS;
+            ctrlToggle.isOn = options.setController;
+            volumeSlider.value = options.volumeSfx;
+            qualityLevelDropdown.value = options.qualityLevel;
+            bloomToggle.isOn = options.setBloom;
+            antiAliasingDropdown.value = options.antiAliasling;
 
-        Debug.Log("Load Options Data File To " + Application.persistentDataPath + "/options.json");
+            Debug.Log("Load Options Data File To " + Application.persistentDataPath + "/options.json");
+        }
+        else
+        {
+            string jsonDat = JsonUtility.ToJson(options, true);
+            File.WriteAllText(Application.persistentDataPath + "/options.json", jsonDat);
+
+            Debug.Log("Created New Options Data File to " + Application.persistentDataPath + "/options.json");
+        }
     }
 
     public void ResetOptions()
