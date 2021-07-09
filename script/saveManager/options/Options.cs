@@ -14,5 +14,6 @@ public class Options
 
     // Graphics Settings
     public int qualityLevel = 2; // 0 means low, 1 means medium, 2 means high, 3 means very high. default is 2
+    public int antiAliasling = 0; // 0 means none, 1 means 2x, 2 means 4x, 3 means 8x. default is 0
     public bool setBloom = true;
 }

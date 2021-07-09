@@ -4,15 +4,26 @@ using System.IO;
 
 public class optionsData : MonoBehaviour
 {
+    [Header("Options Toggle")]
     public Toggle fullScreenToggle;
     public Toggle fpsToggle;
     public Toggle ctrlToggle;
     public Toggle bloomToggle;
 
+    [Header("Options Slider")]
     public Slider volumeSlider;
+
+    [Header("Options Drop Down")]
     public Dropdown qualityLevelDropdown;
+    public Dropdown antiAliasingDropdown;
+
+    [Header("Options GameObject")]
+    public Transform arrowDropDown;
+    public float rotatingTime;
 
     public Options options = new Options();
+
+    private bool isRotateArrow = false;
 
     void OnEnable()
     {
@@ -59,23 +70,35 @@ public class optionsData : MonoBehaviour
         SaveOptions();
     }
 
+    public void rotateArrowOptions()
+    {
+        Quaternion rotasiAwal = Quaternion.Euler(0, 0, 0);
+        Quaternion rotasiAkhir = Quaternion.Euler(0, 0, 180);
+
+        if (isRotateArrow) Quaternion.Slerp(arrowDropDown.rotation, rotasiAkhir, rotatingTime);
+        else Quaternion.Slerp(rotasiAkhir, rotasiAwal, rotatingTime);
+
+        rotatingTime = rotatingTime + Time.deltaTime;
+    }
+
     public void graphicQuality()
     {
-        string qualityLevelMsg;
-
         options.qualityLevel = qualityLevelDropdown.value;
         QualitySettings.SetQualityLevel(options.qualityLevel);
 
-        switch (options.qualityLevel)
-        {
-            case 0: qualityLevelMsg = "low"; break;
-            case 1: qualityLevelMsg = "medium"; break;
-            case 2: qualityLevelMsg = "high"; break;
-            case 3: qualityLevelMsg = "very high"; break;
-            default: qualityLevelMsg = "Null"; break;
-        }
+        Debug.Log("Quality set to " + QualitySettings.names);
 
-        Debug.Log("Quality set to " + qualityLevelMsg);
+        SaveOptions();
+    }
+
+    public void antiAliasOptions()
+    {
+        options.antiAliasling = antiAliasingDropdown.value;
+        QualitySettings.antiAliasing = options.antiAliasling = (int)Mathf.Pow(2f, antiAliasingDropdown.value);
+
+        Debug.Log("Anti-Aliasing set to " + QualitySettings.antiAliasing.ToString());
+
+        SaveOptions();
     }
 
     public void SaveOptions()
@@ -99,6 +122,7 @@ public class optionsData : MonoBehaviour
         volumeSlider.value = options.volumeSfx;
         qualityLevelDropdown.value = options.qualityLevel;
         bloomToggle.isOn = options.setBloom;
+        antiAliasingDropdown.value = options.antiAliasling;
 
         Debug.Log("Load Options Data File To " + Application.persistentDataPath + "/options.json");
     }
@@ -111,15 +135,17 @@ public class optionsData : MonoBehaviour
         volumeSlider.value = 1;
         qualityLevelDropdown.value = 2;
         bloomToggle.isOn = true;
+        antiAliasingDropdown.value = 0;
 
         options.setFullscreen = Screen.fullScreen = fullScreenToggle.isOn;
         options.setFPS = fpsToggle.isOn;
         options.setController = ctrlToggle.isOn;
         options.volumeSfx = volumeSlider.value;
         options.setBloom = bloomToggle.isOn;
+        options.antiAliasling = antiAliasingDropdown.value;
 
         if (fullScreenToggle.isOn && fpsToggle.isOn && ctrlToggle.isOn && volumeSlider.value == 1 &&
-            qualityLevelDropdown.value == 2 && bloomToggle.isOn)
+            qualityLevelDropdown.value == 2 && bloomToggle.isOn && antiAliasingDropdown.value == 0)
         {
             SaveOptions();
             Debug.Log("Reset All Options Data");
