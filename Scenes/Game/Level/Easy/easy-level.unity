@@ -572,10 +572,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e47f8bd1128c06f4e8bbabf082bf0604, type: 3}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5112,8 +5112,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90.5, y: -40}
-  m_SizeDelta: {x: 396.08398, y: 62.116272}
+  m_AnchoredPosition: {x: -79, y: -31}
+  m_SizeDelta: {x: 200, y: 62.116272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110261324
 MonoBehaviour:
@@ -5151,10 +5151,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e47f8bd1128c06f4e8bbabf082bf0604, type: 3}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 50
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -5371,17 +5371,17 @@ PrefabInstance:
     - target: {fileID: 321874648169463790, guid: b022811c41adaff42abf06addc9a6b10,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -90.5
+      value: -79
       objectReference: {fileID: 0}
     - target: {fileID: 321874648169463790, guid: b022811c41adaff42abf06addc9a6b10,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -104
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 321874648169463790, guid: b022811c41adaff42abf06addc9a6b10,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 396.08398
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 321874648169463790, guid: b022811c41adaff42abf06addc9a6b10,
         type: 3}
@@ -5417,6 +5417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 321874648169463791, guid: b022811c41adaff42abf06addc9a6b10,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b022811c41adaff42abf06addc9a6b10, type: 3}
