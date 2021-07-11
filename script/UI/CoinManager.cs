@@ -19,14 +19,19 @@ public class CoinManager : MonoBehaviour
         audioVolume = loadOption.volumeSfx / 10;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.collider.tag == "coin")
+        if (other.gameObject.tag == "coin")
         {
-            sfx.volume = audioVolume;
-            sfx.PlayOneShot(sound);
-            CoinText.coins++;
-            coinManagement.totalCoin++;
+            OnGetCoin();
         }
+    }
+
+    public void OnGetCoin()
+    {
+        sfx.volume = audioVolume;
+        sfx.PlayOneShot(sound);
+        CoinText.coins++;
+        coinManagement.totalCoin++;
     }
 }

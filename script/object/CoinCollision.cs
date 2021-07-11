@@ -7,9 +7,9 @@ public class CoinCollision : MonoBehaviour
 {
     public ParticleSystem getCoinParticle;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.collider.name == "Player")
+        if (other.gameObject.name == "Player")
         {
             Destroy();
         }
