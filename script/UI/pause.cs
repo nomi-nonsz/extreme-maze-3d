@@ -9,9 +9,10 @@ public class pause : MonoBehaviour
     public GameObject pauseUI;
 
     // Update is called once per frame
+
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(pauseGame)
             {
