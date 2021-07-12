@@ -18,7 +18,12 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5;
 
+    [Header("Level Position")]
+
+    public Vector3[] level;
+
 	private Rigidbody rb;
+    private LevelManager1 levelManager = new LevelManager1();
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,13 @@ public class PlayerController : MonoBehaviour
         GameObject gameObject = new GameObject();
 
         rb = GetComponent<Rigidbody>();
+
+        switch (levelManager.currentEasyLevel)
+        {
+            case 1: transform.position = level[0]; break;
+            case 2: transform.position = level[1]; break;
+            case 3: transform.position = level[2]; break;
+        }
     }
 
     // Update is called once per frame
