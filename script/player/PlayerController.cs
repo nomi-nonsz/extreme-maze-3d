@@ -20,9 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Level Position")]
 
-    public Vector3 level1;
-    public Vector3 level2;
-    public Vector3 level3;
+    public Vector3[] levelPosition;
 
 	private Rigidbody rb;
 
@@ -41,15 +39,15 @@ public class PlayerController : MonoBehaviour
         switch (onLevel)
         {
             case 1:
-                transform.position = level1;
+                transform.position = levelPosition[0];
                 Debug.Log("Level: " + onLevel.ToString());
                 break;
             case 2:
-                transform.position = level2;
+                transform.position = levelPosition[1];
                 Debug.Log("Level: " + onLevel.ToString());
                 break;
             case 3:
-                transform.position = level3;
+                transform.position = levelPosition[2];
                 Debug.Log("Level: " + onLevel.ToString());
                 break;
             default: Debug.LogError("current level not valid"); break;
