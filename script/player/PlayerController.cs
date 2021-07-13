@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [Header("Controler Image")]
+
     public Image upImage;
     public Image downImage;
     public Image leftImage;
@@ -21,6 +22,10 @@ public class PlayerController : MonoBehaviour
     [Header("Level Position")]
 
     public Vector3[] levelPosition;
+
+    [Header("Cheat")]
+
+    public bool isCheat = false;
 
 	private Rigidbody rb;
 
@@ -64,6 +69,8 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(movement * speed);
 
+        tryToCheat("up", isCheat);
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             upImage.color = pressedColor;
@@ -98,6 +105,22 @@ public class PlayerController : MonoBehaviour
         else
         {
             rightImage.color = normalColor;
+        }
+    }
+
+    //experiment
+    public void tryToCheat(string cheat, bool onCheat)
+    {
+        if (cheat == "up" && onCheat)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                transform.Translate(Vector3.up);
+            }
+        }
+        else
+        {
+            Debug.LogError("not valid cheat string");
         }
     }
 }

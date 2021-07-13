@@ -11,7 +11,7 @@ public class setTimeOut : MonoBehaviour
     public static float timeStart = 120f;
     public Text timeText;
 
-    bool timerActive = true;
+    public static bool timerActive = true;
 
     // Start is called before the first frame update
     void Start()
