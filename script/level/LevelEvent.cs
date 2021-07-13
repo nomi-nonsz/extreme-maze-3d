@@ -10,10 +10,8 @@ public class LevelEvent : MonoBehaviour
 
     public float transitionTime = 7f;
 
-    private LevelManager1 levelManager = new LevelManager1();
-
     public void LevelEasy(int currentLevel) {
-        levelManager.currentEasyLevel = currentLevel;
+        LevelManager1.currentEasyLevel = currentLevel;
         Debug.Log("selecting easy level: " + currentLevel.ToString());
 
         StartCoroutine(loadingScene("easy-level"));
@@ -21,7 +19,7 @@ public class LevelEvent : MonoBehaviour
 
     public void LevelMedium(int currentLevel)
     {
-        levelManager.currentMediumLevel = currentLevel;
+        LevelManager1.currentMediumLevel = currentLevel;
         Debug.Log("selecting medium level: " + currentLevel.ToString());
 
         StartCoroutine(loadingScene("medium-level"));
@@ -29,7 +27,7 @@ public class LevelEvent : MonoBehaviour
 
     public void LevelHard(int currentLevel)
     {
-        levelManager.currentHardLevel = currentLevel;
+        LevelManager1.currentHardLevel = currentLevel;
         Debug.Log("selecting hard level: " + currentLevel.ToString());
 
         StartCoroutine(loadingScene("hard-level"));

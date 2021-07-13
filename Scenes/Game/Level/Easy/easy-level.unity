@@ -6053,6 +6053,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 2147548928
   speed: 10
+  level1: {x: -0.33, y: 0.454, z: -7.961}
+  level2: {x: -0.33, y: 15.454, z: -7.961}
+  level3: {x: -0.33, y: 30.454, z: -7.961}
 --- !u!114 &1631587042
 MonoBehaviour:
   m_ObjectHideFlags: 0

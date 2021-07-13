@@ -1,6 +1,6 @@
 ﻿public class LevelManager1
 {
-    public int currentEasyLevel;
-    public int currentMediumLevel;
-    public int currentHardLevel;
+    public static int currentEasyLevel;
+    public static int currentMediumLevel;
+    public static int currentHardLevel;
 }

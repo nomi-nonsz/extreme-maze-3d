@@ -20,10 +20,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Level Position")]
 
-    public Vector3[] level;
+    public Vector3 level1;
+    public Vector3 level2;
+    public Vector3 level3;
 
 	private Rigidbody rb;
-    private LevelManager1 levelManager = new LevelManager1();
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +33,26 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        switch (levelManager.currentEasyLevel)
+        LevelPosition(LevelManager1.currentEasyLevel);
+    }
+
+    public void LevelPosition(int onLevel)
+    {
+        switch (onLevel)
         {
-            case 1: transform.position = level[0]; break;
-            case 2: transform.position = level[1]; break;
-            case 3: transform.position = level[2]; break;
+            case 1:
+                transform.position = level1;
+                Debug.Log("Level: " + onLevel.ToString());
+                break;
+            case 2:
+                transform.position = level2;
+                Debug.Log("Level: " + onLevel.ToString());
+                break;
+            case 3:
+                transform.position = level3;
+                Debug.Log("Level: " + onLevel.ToString());
+                break;
+            default: Debug.LogError("current level not valid"); break;
         }
     }
 
