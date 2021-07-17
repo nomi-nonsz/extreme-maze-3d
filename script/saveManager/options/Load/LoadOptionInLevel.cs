@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Android;
 using System.IO;
 
 public class LoadOptionInLevel : MonoBehaviour
@@ -10,8 +11,14 @@ public class LoadOptionInLevel : MonoBehaviour
 
     public Options options = new Options();
 
+    private bool isMobile = false;
+
     void OnEnable()
     {
+#if UNITY_ANDROID
+        isMobile = true;
+#endif
+
         LoadOptionsInGame();
     }
 
@@ -19,9 +26,18 @@ public class LoadOptionInLevel : MonoBehaviour
     {
         options = JsonUtility.FromJson<Options>(File.ReadAllText(Application.persistentDataPath + "/options.json"));
 
+        if (isMobile)
+        {
+            isCtrl = false;
+            isBloom = false;
+        }
+        else
+        {
+            isCtrl = options.setController;
+            isBloom = options.setBloom;
+        }
+
         isFps = options.setFPS;
-        isCtrl = options.setController;
-        isBloom = options.setBloom;
         volumeSfx = options.volumeSfx;
 
         if (File.Exists(Application.persistentDataPath + "/options.json"))

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Android;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,11 +28,21 @@ public class PlayerController : MonoBehaviour
 
     public bool isCheat = false;
 
+    [Header("Android")]
+
+    public Joystick joystick;
+
 	private Rigidbody rb;
+
+    private bool isMobile = false;
 
     // Start is called before the first frame update
     void Start()
     {
+#if UNITY_ANDROID
+        isMobile = true;
+#endif
+
         GameObject gameObject = new GameObject();
 
         rb = GetComponent<Rigidbody>();
@@ -62,10 +73,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        float moveX = Input.GetAxis("Horizontal");
-    	float moveY = Input.GetAxis("Vertical");
+        float moveHorizontal;
+    	float moveVertical;
 
-    	Vector3 movement = new Vector3(-moveY, 0.0f, moveX);
+        if (isMobile)
+        {
+            moveHorizontal = joystick.Horizontal;
+            moveVertical = joystick.Vertical;
+        }
+        else
+        {
+            moveHorizontal = Input.GetAxis("Horizontal");
+            moveVertical = Input.GetAxis("Vertical");
+        }
+
+        Vector3 movement = new Vector3(-moveVertical, 0.0f, moveHorizontal);
 
         rb.AddForce(movement * speed);
 
@@ -117,6 +139,10 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(Vector3.up);
             }
+        }
+        else if (!onCheat)
+        {
+            Debug.Log("cheat is disabled");
         }
         else
         {
