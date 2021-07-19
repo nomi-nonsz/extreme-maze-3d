@@ -14,18 +14,23 @@ public class pause : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(pauseGame)
-            {
-                pauseUI.SetActive(false);
-                Time.timeScale = 1;
-                pauseGame = false;
-            }
-            else
-            {
-                pauseUI.SetActive(true);
-                Time.timeScale = 0;
-                pauseGame = true;
-            }
+            OnPaused();
+        }
+    }
+
+    public void OnPaused()
+    {
+        if (pauseGame)
+        {
+            pauseUI.SetActive(false);
+            Time.timeScale = 1;
+            pauseGame = false;
+        }
+        else
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+            pauseGame = true;
         }
     }
 }
