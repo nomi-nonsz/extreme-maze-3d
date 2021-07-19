@@ -18,16 +18,45 @@ public class optionsData : MonoBehaviour
     public Dropdown antiAliasingDropdown;
 
     [Header("Options GameObject")]
-    public Transform arrowDropDown;
+    public GameObject arrowDropDown;
+    public GameObject fullscreenObj;
+    public GameObject ctrlObj;
+    public GameObject bloomObj;
+
     public float rotatingTime;
 
     public Options options = new Options();
 
+    private RectTransform rectArrow;
+
     private bool isRotateArrow = false;
+    private bool isMobile;
+
+    private void Start()
+    {
+        rectArrow = arrowDropDown.GetComponent<RectTransform>();
+    }
 
     void OnEnable()
     {
         LoadOptions();
+
+        #if UNITY_ANDROID
+        isMobile = true;
+        #endif
+
+        if (isMobile)
+        {
+            fullscreenObj.SetActive(false);
+            ctrlObj.SetActive(false);
+            bloomObj.SetActive(false);
+        }
+        else
+        {
+            fullscreenObj.SetActive(true);
+            ctrlObj.SetActive(true);
+            bloomObj.SetActive(true);
+        }
     }
 
     public void isFullscreen()
@@ -75,7 +104,7 @@ public class optionsData : MonoBehaviour
         Quaternion rotasiAwal = Quaternion.Euler(0, 0, 0);
         Quaternion rotasiAkhir = Quaternion.Euler(0, 0, 180);
 
-        if (isRotateArrow) Quaternion.Slerp(arrowDropDown.rotation, rotasiAkhir, rotatingTime);
+        if (isRotateArrow) Quaternion.Slerp(rectArrow.rotation, rotasiAkhir, rotatingTime);
         else Quaternion.Slerp(rotasiAkhir, rotasiAwal, rotatingTime);
 
         rotatingTime = rotatingTime + Time.deltaTime;
