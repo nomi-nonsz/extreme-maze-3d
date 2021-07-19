@@ -16,6 +16,15 @@ public class setTimeOut : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch (LevelManager1.currentEasyLevel)
+        {
+            case 1: timeStart = 120f; break;
+            case 2: timeStart = 100f; break;
+            case 3: timeStart = 80f; break;
+            case 4: timeStart = 120f; break;
+            case 5: timeStart = 100f; break;
+        }
+
         timeText.text = "Time: " + timeStart;
     }
 

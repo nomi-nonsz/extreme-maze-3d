@@ -66,6 +66,14 @@ public class PlayerController : MonoBehaviour
                 transform.position = levelPosition[2];
                 Debug.Log("Level: " + onLevel.ToString());
                 break;
+            case 4:
+                transform.position = levelPosition[3];
+                Debug.Log("Level: " + onLevel.ToString());
+                break;
+            case 5:
+                transform.position = levelPosition[4];
+                Debug.Log("Level: " + onLevel.ToString());
+                break;
             default: Debug.LogError("current level not valid"); break;
         }
     }

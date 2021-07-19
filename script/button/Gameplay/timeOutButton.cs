@@ -23,6 +23,17 @@ public class timeOutButton : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         sfx.PlayOneShot(sound);
         CoinText.coins = 0;
+
+        switch (LevelManager1.currentEasyLevel)
+        {
+            case 1: setTimeOut.timeStart = 120f; break;
+            case 2: setTimeOut.timeStart = 100f; break;
+            case 3: setTimeOut.timeStart = 80f; break;
+            case 4: setTimeOut.timeStart = 120f; break;
+            case 5: setTimeOut.timeStart = 100f; break;
+            default: setTimeOut.timeStart = 120f; break;
+        }
+
         setTimeOut.timeStart = 120;
 
         Time.timeScale = 1;
