@@ -2381,7 +2381,6 @@ MonoBehaviour:
     type: 3}
   CoinT: {fileID: 2014772438}
   coinTime: 0
-  lvlt: {fileID: 391922110}
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
   audioVolume: 0.2
@@ -2668,84 +2667,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8400976432805623956, guid: 3a27dd96cc0631b4c9110b0984095697, type: 3}
---- !u!1 &391922108
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 391922109}
-  - component: {fileID: 391922111}
-  - component: {fileID: 391922110}
-  m_Layer: 5
-  m_Name: Text (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &391922109
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391922108}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 879389163}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -279, y: 64}
-  m_SizeDelta: {x: 303.22864, y: 110.33078}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &391922110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391922108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: e8ef553387e8f7a4e822eb499222faa4, type: 3}
-    m_FontSize: 60
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 60
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 0
---- !u!222 &391922111
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391922108}
-  m_CullTransparentMesh: 0
 --- !u!1 &397043739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3548,7 +3469,6 @@ MonoBehaviour:
     type: 3}
   CoinT: {fileID: 2014772438}
   coinTime: 0
-  lvlt: {fileID: 391922110}
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
   audioVolume: 0.2
@@ -4356,7 +4276,6 @@ MonoBehaviour:
     type: 3}
   CoinT: {fileID: 2014772438}
   coinTime: 0
-  lvlt: {fileID: 391922110}
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
   audioVolume: 0.2
@@ -5911,7 +5830,6 @@ RectTransform:
   - {fileID: 2084875455}
   - {fileID: 2014772437}
   - {fileID: 1319898091}
-  - {fileID: 391922109}
   m_Father: {fileID: 963444858}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7868,7 +7786,6 @@ MonoBehaviour:
     type: 3}
   CoinT: {fileID: 2014772438}
   coinTime: 0
-  lvlt: {fileID: 391922110}
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
   audioVolume: 0.2
@@ -12799,7 +12716,6 @@ MonoBehaviour:
     type: 3}
   CoinT: {fileID: 2014772438}
   coinTime: 0
-  lvlt: {fileID: 391922110}
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
   audioVolume: 0.2
