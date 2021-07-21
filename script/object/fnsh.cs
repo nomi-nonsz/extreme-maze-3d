@@ -20,9 +20,12 @@ public class fnsh : MonoBehaviour
     public AudioSource sfx;
     public AudioClip clip;
 
+    [Header("level")]
+    public Level level;
+
     public float audioVolume;
 
-    LoadOptionInLevel loadOption;
+    private LoadOptionInLevel loadOption;
 
     void Start()
     {
@@ -32,6 +35,11 @@ public class fnsh : MonoBehaviour
         audioVolume = loadOption.volumeSfx / 5;
     }
 
+    public void SaveLevel()
+    {
+        levelSystem.SaveLevel(level);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.name == "Player")
@@ -39,6 +47,7 @@ public class fnsh : MonoBehaviour
             Instantiate(finalParticles, transform.position, Quaternion.Euler(-90, 0, 0));
             CoinT.text = coinManagement.totalCoin.ToString();
             sfx.volume = audioVolume;
+            LevelUpdate();
 
             sfx.PlayOneShot(clip);
 
@@ -46,7 +55,43 @@ public class fnsh : MonoBehaviour
         }
     }
 
-    IEnumerator finshAnim()
+    private void LevelUpdate()
+    {
+        if (level.easy == LevelManager1.currentEasyLevel - 1)
+        {
+            level.easy++;
+            SaveLevel();
+
+            if (level.easy == LevelManager1.currentEasyLevel)
+                Debug.Log("level up!");
+
+            Debug.Log("Level after finish: " + level.easy.ToString());
+        }
+
+        if (level.medium == LevelManager1.currentMediumLevel - 1)
+        {
+            level.medium++;
+            SaveLevel();
+
+            if (level.medium == LevelManager1.currentMediumLevel)
+                Debug.Log("level up!");
+
+            Debug.Log("Level after finish: " + level.easy.ToString());
+        }
+
+        if (level.hard == LevelManager1.currentHardLevel - 1)
+        {
+            level.hard++;
+            SaveLevel();
+
+            if (level.hard == LevelManager1.currentHardLevel)
+                Debug.Log("level up!");
+
+            Debug.Log("Level after finish: " + level.easy.ToString());
+        }
+    }
+
+    private IEnumerator finshAnim()
     {
         slider.SetTrigger("move");
         yield return new WaitForSeconds(transitionStart);

@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class LoadLevelData : MonoBehaviour
 {
-    private Level level = new Level();
+    public Level level;
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         loadLevelDat();
     }
 
     public void createLevelData()
     {
-        level.Save();
+        levelSystem.SaveLevel(level);
 
         Debug.Log("Create new Level Data");
     }
@@ -22,7 +22,11 @@ public class LoadLevelData : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/level.dat"))
         {
-            level.Load();
+            LevelData data = levelSystem.LoadLevel();
+
+            level.easy = data.easyLevel;
+            level.medium = data.mediumLevel;
+            level.hard = data.hardLevel;
         }
         else
         {
