@@ -19,18 +19,23 @@ public class fnsh : MonoBehaviour
     [Header("Sfx")]
     public AudioSource sfx;
     public AudioClip clip;
-
-    [Header("level")]
-    public Level level;
-
     public float audioVolume;
 
+    [Header("level")]
+    public GameObject levelTextObj;
+    public Level level;
+
     private LoadOptionInLevel loadOption;
+    private Text levelText;
 
     void Start()
     {
         GameObject gameObject = new GameObject();
         loadOption = gameObject.AddComponent<LoadOptionInLevel>();
+        levelText = levelTextObj.GetComponent<Text>();
+
+        levelTextObj.SetActive(false);
+        levelText.text = "Level " + LevelManager1.currentEasyLevel.ToString() + " Complete";
 
         audioVolume = loadOption.volumeSfx / 5;
     }
@@ -46,6 +51,7 @@ public class fnsh : MonoBehaviour
         {
             Instantiate(finalParticles, transform.position, Quaternion.Euler(-90, 0, 0));
             CoinT.text = coinManagement.totalCoin.ToString();
+            levelTextObj.SetActive(true);
             sfx.volume = audioVolume;
             LevelUpdate();
 

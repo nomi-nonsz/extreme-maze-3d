@@ -1250,6 +1250,43 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8400976432805623956, guid: 3a27dd96cc0631b4c9110b0984095697, type: 3}
+--- !u!1 &119730897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119730898}
+  m_Layer: 5
+  m_Name: Finish Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &119730898
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119730897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 771781706}
+  - {fileID: 1801176058}
+  m_Father: {fileID: 879389163}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -99}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &148970540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,8 +2420,9 @@ MonoBehaviour:
   coinTime: 0
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
-  level: {fileID: 1819940816}
   audioVolume: 0.2
+  levelTextObj: {fileID: 1801176057}
+  level: {fileID: 1819940816}
 --- !u!65 &376929181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3472,8 +3510,9 @@ MonoBehaviour:
   coinTime: 0
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
-  level: {fileID: 1819940816}
   audioVolume: 0.2
+  levelTextObj: {fileID: 1801176057}
+  level: {fileID: 1819940816}
 --- !u!65 &500472280
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4280,8 +4319,9 @@ MonoBehaviour:
   coinTime: 0
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
-  level: {fileID: 1819940816}
   audioVolume: 0.2
+  levelTextObj: {fileID: 1801176057}
+  level: {fileID: 1819940816}
 --- !u!1 &678689541
 GameObject:
   m_ObjectHideFlags: 0
@@ -4956,7 +4996,7 @@ GameObject:
   - component: {fileID: 771781708}
   - component: {fileID: 771781707}
   m_Layer: 5
-  m_Name: Text
+  m_Name: you did it
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4969,16 +5009,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771781705}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 879389163}
+  m_Father: {fileID: 119730898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 173}
+  m_AnchoredPosition: {x: 0, y: 28}
   m_SizeDelta: {x: 303.22864, y: 110.33078}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771781707
@@ -5828,7 +5868,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 771781706}
+  - {fileID: 119730898}
   - {fileID: 1055415604}
   - {fileID: 2084875455}
   - {fileID: 2014772437}
@@ -7791,8 +7831,9 @@ MonoBehaviour:
   coinTime: 0
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
-  level: {fileID: 1819940816}
   audioVolume: 0.2
+  levelTextObj: {fileID: 1801176057}
+  level: {fileID: 1819940816}
 --- !u!65 &1225867555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11342,6 +11383,84 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1801176057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801176058}
+  - component: {fileID: 1801176060}
+  - component: {fileID: 1801176059}
+  m_Layer: 5
+  m_Name: level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1801176058
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801176057}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 119730898}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -14.2}
+  m_SizeDelta: {x: 400, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1801176059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801176057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e8ef553387e8f7a4e822eb499222faa4, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Level level.ToString() Complete
+--- !u!222 &1801176060
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801176057}
+  m_CullTransparentMesh: 0
 --- !u!1 &1819940813
 GameObject:
   m_ObjectHideFlags: 0
@@ -12782,8 +12901,9 @@ MonoBehaviour:
   coinTime: 0
   sfx: {fileID: 1752791164}
   clip: {fileID: 8300000, guid: cdc8bfb564aa61e4d8b23dd4102f535c, type: 3}
-  level: {fileID: 1819940816}
   audioVolume: 0.2
+  levelTextObj: {fileID: 1801176057}
+  level: {fileID: 1819940816}
 --- !u!65 &2102369430
 BoxCollider:
   m_ObjectHideFlags: 0
