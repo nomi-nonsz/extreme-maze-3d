@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62677fb17ba4fe14daa85247d30cc6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 0.36 Beta
+  version: 0.47 Beta
 --- !u!4 &1726976757
 Transform:
   m_ObjectHideFlags: 0
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   versionText: {fileID: 303145581}
-  version: 0.46 Beta
+  version: 0.47 Beta
 --- !u!4 &1967714850
 Transform:
   m_ObjectHideFlags: 0
