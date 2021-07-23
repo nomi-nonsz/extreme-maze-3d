@@ -22,19 +22,24 @@ public class optionsData : MonoBehaviour
     public GameObject fullscreenObj;
     public GameObject ctrlObj;
     public GameObject bloomObj;
+    public GameObject setControllerMobile;
 
     public float rotatingTime;
 
     public Options options = new Options();
 
     private RectTransform rectArrow;
+    private Button controllerButtonMobile;
 
     private bool isRotateArrow = false;
     private bool isMobile;
 
+    private int MobileControlMode = 1;
+
     private void Start()
     {
         rectArrow = arrowDropDown.GetComponent<RectTransform>();
+        controllerButtonMobile = setControllerMobile.GetComponent<Button>();
     }
 
     void OnEnable()
@@ -50,12 +55,16 @@ public class optionsData : MonoBehaviour
             fullscreenObj.SetActive(false);
             ctrlObj.SetActive(false);
             bloomObj.SetActive(false);
+
+            setControllerMobile.SetActive(true);
         }
         else
         {
             fullscreenObj.SetActive(true);
             ctrlObj.SetActive(true);
             bloomObj.SetActive(true);
+
+            setControllerMobile.SetActive(false);
         }
     }
 
@@ -145,6 +154,48 @@ public class optionsData : MonoBehaviour
         SaveOptions();
     }
 
+    public void MobileControlJoystick()
+    {
+        string controlMode;
+
+        options.controlMobile = MobileControlMode = 0;
+
+        switch (options.controlMobile)
+        {
+            case 0: controlMode = "Joystick"; break;
+            case 1: controlMode = "Touch Button"; break;
+            default:
+                controlMode = "NaN";
+                Debug.LogError("control mobile not valid");
+                break;
+        }
+
+        Debug.Log("Set Control On Mobile To " + controlMode);
+
+        SaveOptions();
+    }
+
+    public void MobileControlTouch()
+    {
+        string controlMode;
+
+        options.controlMobile = MobileControlMode = 1;
+
+        switch (options.controlMobile)
+        {
+            case 0: controlMode = "Joystick"; break;
+            case 1: controlMode = "Touch Button"; break;
+            default:
+                controlMode = "NaN";
+                Debug.LogError("control mobile not valid");
+                break;
+        }
+
+        Debug.Log("Set Control On Mobile To " + controlMode);
+
+        SaveOptions();
+    }
+
     public void SaveOptions()
     {
         string jsonDat = JsonUtility.ToJson(options, true);
@@ -165,8 +216,11 @@ public class optionsData : MonoBehaviour
             fullScreenToggle.isOn = options.setFullscreen;
             fpsToggle.isOn = options.setFPS;
             ctrlToggle.isOn = options.setController;
+            MobileControlMode = options.controlMobile;
+
             volumeSlider.value = options.volumeSfx;
             qualityLevelDropdown.value = options.qualityLevel;
+
             bloomToggle.isOn = options.setBloom;
             antiAliasingDropdown.value = options.antiAliasling;
 
@@ -186,6 +240,7 @@ public class optionsData : MonoBehaviour
         fullScreenToggle.isOn = true;
         fpsToggle.isOn = true;
         ctrlToggle.isOn = true;
+        MobileControlMode = 1;
         volumeSlider.value = 1;
         qualityLevelDropdown.value = 2;
         bloomToggle.isOn = true;
@@ -194,11 +249,12 @@ public class optionsData : MonoBehaviour
         options.setFullscreen = Screen.fullScreen = fullScreenToggle.isOn;
         options.setFPS = fpsToggle.isOn;
         options.setController = ctrlToggle.isOn;
+        options.controlMobile = MobileControlMode;
         options.volumeSfx = volumeSlider.value;
         options.setBloom = bloomToggle.isOn;
         options.antiAliasling = antiAliasingDropdown.value;
 
-        if (fullScreenToggle.isOn && fpsToggle.isOn && ctrlToggle.isOn && volumeSlider.value == 1 &&
+        if (fullScreenToggle.isOn && fpsToggle.isOn && ctrlToggle.isOn && MobileControlMode == 1 && volumeSlider.value == 1 &&
             qualityLevelDropdown.value == 2 && bloomToggle.isOn && antiAliasingDropdown.value == 0)
         {
             SaveOptions();

@@ -9,6 +9,8 @@ public class Options
     public bool setFPS = true;
     public bool setController = true;
 
+    public int controlMobile = 1; // 0 means Joystick, 1 means button control
+
     // Volume Settings
     public float volumeSfx = 1;
 

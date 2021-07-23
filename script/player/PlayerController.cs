@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public Joystick joystick;
 
 	private Rigidbody rb;
+    private LoadOptionInLevel options;
 
     private bool isMobile = false;
 
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
 #endif
 
         GameObject gameObject = new GameObject();
-
+        options = gameObject.AddComponent<LoadOptionInLevel>();
         rb = GetComponent<Rigidbody>();
 
         LevelPosition(LevelManager1.currentEasyLevel);
@@ -86,8 +87,27 @@ public class PlayerController : MonoBehaviour
 
         if (isMobile)
         {
-            moveHorizontal = joystick.Horizontal;
-            moveVertical = joystick.Vertical;
+            switch (options.controlMode)
+            {
+                case 0:
+                    moveHorizontal = joystick.Horizontal;
+                    moveVertical = joystick.Vertical;
+
+                    Debug.Log("Controller Input Mobile Switch To Joystick");
+                    break;
+                case 1:
+                    moveHorizontal = SimpleInput.GetAxis("Horizontal");
+                    moveVertical = SimpleInput.GetAxis("Vertical");
+
+                    Debug.Log("Controller Input Mobile Switch To Touch Arrow");
+                    break;
+                default:
+                    moveHorizontal = 0;
+                    moveVertical = 0;
+
+                    Debug.LogError("Switch Controller Mobile Not Valid");
+                    break;
+            }
         }
         else
         {

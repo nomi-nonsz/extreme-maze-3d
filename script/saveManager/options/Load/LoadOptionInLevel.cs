@@ -9,6 +9,8 @@ public class LoadOptionInLevel : MonoBehaviour
     public bool isBloom;
     public float volumeSfx;
 
+    public int controlMode;
+
     public Options options = new Options();
 
     private bool isMobile = false;
@@ -30,6 +32,8 @@ public class LoadOptionInLevel : MonoBehaviour
         {
             isCtrl = false;
             isBloom = false;
+
+            controlMode = options.controlMobile;
         }
         else
         {
