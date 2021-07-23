@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class StartButton : MonoBehaviour
+public class StartButton : MonoBehaviour, IPointerDownHandler
 {
     public Animator transition;
 
@@ -25,19 +26,18 @@ public class StartButton : MonoBehaviour
         audioSound = loadOptions.volumeSfx;
     }
 
-    void Update()
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (isStart)
         {
-            if (Input.anyKey)
-            {
-                audioSource.volume = audioSound;
-                audioSource.PlayOneShot(clickSound);
+            audioSource.volume = audioSound;
+            audioSource.PlayOneShot(clickSound);
 
-                StartCoroutine(StartGame());
-            }
+            StartCoroutine(StartGame());
         }
     }
+
+
 
 	//start the game
     IEnumerator StartGame() {
