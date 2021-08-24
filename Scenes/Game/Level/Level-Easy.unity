@@ -2489,16 +2489,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27d2f45effb8d84390ab9679f58adce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockLevel1: {fileID: 1296161922}
-  unlockLevel2: {fileID: 1268733317}
-  unlockLevel3: {fileID: 952894194}
-  unlockLevel4: {fileID: 1667294364}
-  unlockLevel5: {fileID: 1143813506}
-  lockLevel1: {fileID: 1859150538}
-  lockLevel2: {fileID: 1496079898}
-  lockLevel3: {fileID: 1427359234}
-  lockLevel4: {fileID: 1011810924}
-  lockLevel5: {fileID: 643991423}
+  unlockLevel:
+  - {fileID: 1296161922}
+  - {fileID: 1268733317}
+  - {fileID: 952894194}
+  - {fileID: 1667294364}
+  - {fileID: 1143813506}
+  lockedLevel:
+  - {fileID: 1859150538}
+  - {fileID: 1496079898}
+  - {fileID: 1427359234}
+  - {fileID: 1011810924}
+  - {fileID: 643991423}
   loadingImage: {fileID: 2119738361}
   loadingBar: {fileID: 1215654203}
   transitionTime: 7

@@ -7,62 +7,57 @@ using UnityEngine.UI;
 public class LevelEvent : MonoBehaviour
 {
     [Header("Unlocked Level")]
-    public GameObject unlockLevel1;
-    public GameObject unlockLevel2;
-    public GameObject unlockLevel3;
-    public GameObject unlockLevel4;
-    public GameObject unlockLevel5;
+    public GameObject[] unlockLevel;
 
     [Header("Locked Level")]
-    public GameObject lockLevel1;
-    public GameObject lockLevel2;
-    public GameObject lockLevel3;
-    public GameObject lockLevel4;
-    public GameObject lockLevel5;
+    public GameObject[] lockedLevel;
 
     public GameObject loadingImage;
     public Animator loadingBar;
 
+    // waktu transisi
     public float transitionTime = 7f;
 
     public Level level;
 
+    // kalo 1 berarti EZ kalo 2 berarti medium kalo 3 berarti hard
+    public int LevelDiff = 1;
+
     void OnEnable()
     {
-        LevelObject();
+        // ganti level muncul atau kaga
+        switch (LevelDiff)
+        {
+            case 1: LevelObject(lockedLevel, unlockLevel, lockedLevel.Length, level.easy+1); break;
+            case 2: LevelObject(lockedLevel, unlockLevel, lockedLevel.Length, level.medium+1); break;
+            case 3: LevelObject(lockedLevel, unlockLevel, lockedLevel.Length, level.hard+1); break;
+            default: Debug.LogError("Level Difficult only 1-3 values will selected"); break;
+        }
     }
 
-    private void LevelObject()
+    // ganti level muncul atau kaga
+    private void LevelObject(GameObject[] lockObj, GameObject[] unlockObj, int levelLength, int currentLevel)
     {
-        if (level.easy >= 0)
+        // bool dikunci atau pun tidak di level
+        bool isUnlocked = true;
+        bool isLocked = false;
+
+        // pilih level yang gk dikunci
+        for (int i = 0; i < levelLength; i++)
         {
-            unlockLevel1.SetActive(true);
-            lockLevel1.SetActive(false);
-        }
-        if (level.easy >= 1)
-        {
-            unlockLevel2.SetActive(true);
-            lockLevel2.SetActive(false);
-        }
-        if (level.easy >= 2)
-        {
-            unlockLevel3.SetActive(true);
-            lockLevel3.SetActive(false);
-        }
-        if (level.easy >= 3)
-        {
-            unlockLevel4.SetActive(true);
-            lockLevel4.SetActive(false);
-        }
-        if (level.easy >= 4)
-        {
-            unlockLevel5.SetActive(true);
-            lockLevel5.SetActive(false);
+            for (int b = 0; b < currentLevel; b++)
+            {
+                // ubah set active untuk yang dikunci maupun tidak
+                unlockObj[b].SetActive(isUnlocked);
+                lockObj[b].SetActive(isLocked);
+            }
         }
 
+        // pesan debug
         Debug.Log("level unclocked: " + level.easy.ToString());
     }
 
+    // ubah value level ketika masuk level
     public void LevelEasy(int currentLevel)
     {
         LevelManager1.currentEasyLevel = currentLevel;
@@ -71,6 +66,7 @@ public class LevelEvent : MonoBehaviour
         StartCoroutine(loadingScene("easy-level"));
     }
 
+    // ubah value level ketika masuk level
     public void LevelMedium(int currentLevel)
     {
         LevelManager1.currentMediumLevel = currentLevel;
@@ -79,6 +75,7 @@ public class LevelEvent : MonoBehaviour
         StartCoroutine(loadingScene("medium-level"));
     }
 
+    // ubah value level ketika masuk level
     public void LevelHard(int currentLevel)
     {
         LevelManager1.currentHardLevel = currentLevel;
@@ -87,6 +84,7 @@ public class LevelEvent : MonoBehaviour
         StartCoroutine(loadingScene("hard-level"));
     }
 
+    // loading scene
     IEnumerator loadingScene(string scene)
     {
         loadingImage.SetActive(true);
