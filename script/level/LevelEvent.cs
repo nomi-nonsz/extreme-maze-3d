@@ -22,7 +22,6 @@ public class LevelEvent : MonoBehaviour
 
     // kalo 1 berarti EZ kalo 2 berarti medium kalo 3 berarti hard
     public int LevelDiff = 1;
-
     void OnEnable()
     {
         // ganti level muncul atau kaga
