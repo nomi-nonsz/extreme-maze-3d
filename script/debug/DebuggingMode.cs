@@ -5,7 +5,7 @@ using UnityEngine;
 public class DebuggingMode : MonoBehaviour
 {
     public GameObject debugObj;
-    public bool isDebugMode = false;
+    public bool isDebugMode;
 
     private void Start()
     {

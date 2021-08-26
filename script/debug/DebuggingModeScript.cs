@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 public class DebuggingModeScript : MonoBehaviour
 {
@@ -16,14 +15,11 @@ public class DebuggingModeScript : MonoBehaviour
     public Text posY;
     public Text posZ;
 
-    DebuggingMode debugMode;
+    public DebuggingMode debugMode;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject gameObject = new GameObject();
-        debugMode = gameObject.AddComponent<DebuggingMode>();
-
         if (debugMode.debugObj)
         {
             sceneTextNum.text = "Scene Index: " + SceneManager.GetActiveScene().buildIndex.ToString();

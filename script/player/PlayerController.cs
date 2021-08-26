@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
     public Color32 normalColor;
     public Color32 pressedColor;
 
+    [Header("Sound Effect")]
+
+    public AudioSource audioSource;
+    public AudioClip[] clip;
+
     [Header("Controler Player")]
 
     public float speed = 5;
@@ -77,6 +82,16 @@ public class PlayerController : MonoBehaviour
                 break;
             default: Debug.LogError("current level not valid"); break;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        int currentSound = Random.Range(0, clip.Length);
+
+        audioSource.volume = options.volumeSfx;
+        audioSource.pitch = Random.Range(1.2f, 2f);
+
+        audioSource.PlayOneShot(clip[currentSound]);
     }
 
     // Update is called once per frame
